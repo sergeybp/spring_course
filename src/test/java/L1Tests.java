@@ -24,7 +24,7 @@ import static org.openqa.selenium.OutputType.FILE;
 /**
  * Created by yegres on 01.05.2017.
  */
-public class Tests {
+public class L1Tests {
 
     @Before
     public void init() {

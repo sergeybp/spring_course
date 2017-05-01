@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -50,22 +51,18 @@ public class L1Tests {
     }
 
     @Test
-    // Setting capabilities
-    public void capabilitiesTest() throws MalformedURLException {
+    // User-agent test
+    public void userAgentTest() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setJavascriptEnabled(false);
-        capabilities.setBrowserName("chrome");
-        capabilities.setPlatform(Platform.ANDROID);
+        // Setting user-agent for Android device
+        FirefoxProfile p = new FirefoxProfile();
+        p.setPreference("general.useragent.override", "Mozilla/5.0 (Linux; U; Android 2.2.1; en-ca; LG-P505R Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
 
-        WebDriver driver = new FirefoxDriver(capabilities);
-        driver.navigate().to("https://www.piliapp.com/what-is-my/http-request-headers/");
+        // Opening Yandex and checking for mobile version
+        WebDriver driver = new FirefoxDriver(p);
+        driver.navigate().to("http://www.yandex.ru");
         String text = driver.getPageSource();
-        if(text.contains("chrome") || text.contains("android")){
-            System.out.print("Ok");
-        } else {
-            System.out.print("Not working. Why?");
-        }
+        assert (text.contains("Полная версия"));
         driver.close();
     }
 

@@ -28,7 +28,7 @@ public class L1Tests {
 
     @Before
     public void init() {
-        System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "/home/sergeybp/geckodriver");
     }
 
     @Test
@@ -86,8 +86,7 @@ public class L1Tests {
         element.sendKeys("Nokia");
 
         // Setting category
-        WebElement category = driver.findElement(By.id("category"));
-        category.sendKeys("Телефоны");
+        driver.findElement(By.xpath("//select[@id='category']/option[text()='Телефоны']")).click();
 
         // Submitting query
         element.submit();
@@ -121,10 +120,12 @@ public class L1Tests {
         // Taking screenshot
         TakesScreenshot ts = (TakesScreenshot) driver;
         File out = ts.getScreenshotAs(FILE);
-        org.apache.commons.io.FileUtils.copyFile(out, new File("screenshotTest.png"));
+        File file = new File("screenshotTest.png");
+        file.createNewFile();
+        org.apache.commons.io.FileUtils.copyFile(out, file);
 
         // Checking that everything is alright
-        File f = new File("screenShotTest.png");
+        File f = new File("screenshotTest.png");
         assert (f.exists() && !f.isDirectory());
 
         driver.close();
@@ -148,10 +149,12 @@ public class L1Tests {
         Point point = element.getLocation();
         BufferedImage result = tmp.getSubimage(point.getX(), point.getY(), element.getSize().getWidth(), element.getSize().getHeight());
         ImageIO.write(result, "png", screen);
-        org.apache.commons.io.FileUtils.copyFile(screen, new File("screenshotElementTest.png"));
+        File file = new File("screenshotElementTest.png");
+        file.createNewFile();
+        org.apache.commons.io.FileUtils.copyFile(screen, file);
 
         // Checking that everything is alright
-        File f = new File("screenShotElementTest.png");
+        File f = new File("screenshotElementTest.png");
         assert (f.exists() && !f.isDirectory());
 
         driver.close();

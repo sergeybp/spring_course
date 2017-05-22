@@ -1,1 +1,0 @@
-mvn clean install test -Dsuite=login

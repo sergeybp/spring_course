@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.StringTokenizer;
 
+/**
+ * Created by sergeybp on 22.05.17.
+ **/
 public class FastScanner {
 
     private StringTokenizer tokenizer;

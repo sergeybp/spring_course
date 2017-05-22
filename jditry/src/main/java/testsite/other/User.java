@@ -21,4 +21,6 @@ public class User {
         this.name = name;
         this.password = password;
     }
+
+    public static User emptyUser = new User("","");
 }

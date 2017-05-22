@@ -26,7 +26,7 @@ public class MainPage extends WebPage {
             logoutButton.click();
             loginOpen.clickCenter();
         } else if (loginForm.isDisplayed()) {
-            loginForm.fill(new User("",""));
+            loginForm.fill(User.emptyUser);
             loginOpen.clickCenter();
         }
     }

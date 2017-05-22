@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Created by sergeybp on 07.05.17.
- */
+ **/
 public class DataProviders {
 
     @DataProvider(name = "usersSetCsv")

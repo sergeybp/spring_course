@@ -8,7 +8,7 @@ import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
 /**
  * Created by sergeybp on 22.05.17.
- */
+ **/
 public class LoginTests extends InitTests {
 
     @BeforeMethod

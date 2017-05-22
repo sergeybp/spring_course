@@ -8,7 +8,7 @@ import testsite.other.User;
 
 /**
  * Created by sergeybp on 22.05.17.
- */
+ **/
 public class LoginForm extends Form<User> {
 
     @JFindBy(id = "Login")

@@ -7,17 +7,20 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindB
 import testsite.entities.User;
 
 /**
- * Created by sergeybp on 22.05.17.
- **/
-public class LoginForm extends Form<User> {
+ * Created by sergeybp on 23.05.17.
+ */
+public class ContactForm extends Form<User> {
 
-    @JFindBy(id = "Login")
+    @JFindBy(id = "Name")
     private ITextField name;
 
-    @JFindBy(id = "Password")
-    private ITextField password;
+    @JFindBy(id = "LastName")
+    private ITextField lastName;
 
-    @JFindBy(css = "[type=submit]")
+    @JFindBy(id = "Description")
+    private ITextField description;
+
+    @JFindBy(text = "Submit")
     private IButton submit;
 
 }

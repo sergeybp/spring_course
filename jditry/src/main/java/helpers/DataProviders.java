@@ -1,6 +1,6 @@
 package helpers;
 
-import testsite.other.User;
+import testsite.entities.User;
 import org.testng.annotations.DataProvider;
 
 import java.io.FileNotFoundException;
@@ -20,15 +20,15 @@ public class DataProviders {
         while (in.hasNext()) {
             String tmp = in.nextString();
             String[] splits = tmp.split("\\,");
-            if (splits.length < 3) {
+            if (splits.length < 5) {
                 continue;
             }
             try {
-                Boolean.parseBoolean(splits[2]);
+                Boolean.parseBoolean(splits[4]);
             } catch (Exception e) {
                 continue;
             }
-            result.add(new Object[]{new User(splits[0], splits[1]), Boolean.parseBoolean(splits[2])});
+            result.add(new Object[]{new User(splits[0], splits[1], splits[2], splits[3]), Boolean.parseBoolean(splits[2])});
         }
         return result.toArray(new Object[0][]);
     }
@@ -36,12 +36,13 @@ public class DataProviders {
     @DataProvider(name = "usersSetHardcoded")
     public static Object[][] usersSetHardcoded() {
         return new Object[][]{
-                {new User("Petr", "petrpetr"), false},
-                {new User("Ivan", "ivan12345"), false},
-                {new User("epam", "1234"), true},
-                {new User("Olga", "olenka"), false},
-                {new User("epam", "1234"), true},
+                {new User("Petr", "petrpetr", "Petrov", "descrrrr"), false},
+                {new User("Ivan", "ivan12345", "Ivanov", "Descr"), false},
+                {new User("epam", "1234", "testLastName", "some text"), true},
+                {new User("Olga", "olenka", "Olgovna", "another text"), false},
+                {new User("epam", "1234", "Epamov", "aaa. more text."), true},
         };
     }
+
 
 }

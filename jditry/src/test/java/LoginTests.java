@@ -1,4 +1,4 @@
-import testsite.other.User;
+import testsite.entities.User;
 import helpers.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -31,11 +31,11 @@ public class LoginTests extends InitTests {
     }
 
     public void testLogin(User user, boolean isCorrect){
-        mainPage.tryLogout();
-        mainPage.loginOpen.clickCenter();
-        Assert.assertTrue(mainPage.loginForm.isDisplayed());
-        mainPage.loginForm.loginAs(user);
-        Assert.assertEquals(mainPage.logoutButton.isDisplayed(), isCorrect);
+        mainPage.header.tryLogout();
+        mainPage.header.loginOpen.clickCenter();
+        Assert.assertTrue(mainPage.header.loginForm.isDisplayed());
+        mainPage.header.loginForm.loginAs(user);
+        Assert.assertEquals(mainPage.header.logoutButton.isDisplayed(), isCorrect);
     }
 
 }

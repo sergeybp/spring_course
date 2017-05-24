@@ -36,11 +36,11 @@ public class DataProviders {
     @DataProvider(name = "usersSetHardcoded")
     public static Object[][] usersSetHardcoded() {
         return new Object[][]{
+                {new User("epam", "1234", "testLastName", "some text"), true},
+                {new User("epam", "1234", "admin", "aaa. more text."), true},
                 {new User("Petr", "petrpetr", "Petrov", "descrrrr"), false},
                 {new User("Ivan", "ivan12345", "Ivanov", "Descr"), false},
-                {new User("epam", "1234", "testLastName", "some text"), true},
                 {new User("Olga", "olenka", "Olgovna", "another text"), false},
-                {new User("epam", "1234", "Epamov", "aaa. more text."), true},
         };
     }
 

@@ -14,6 +14,7 @@ public class InitTests extends TestNGBase{
 
     @BeforeSuite(alwaysRun = true)
     public static void setUp() throws Exception {
+
         WebSite.init(TestEpamWebSite.class);
         logger.info("Run Tests");
     }

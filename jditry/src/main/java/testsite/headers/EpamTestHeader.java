@@ -7,6 +7,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Link;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import testsite.entities.User;
+import testsite.entities.Users;
 import testsite.forms.LoginForm;
 
 /**
@@ -28,8 +29,8 @@ public class EpamTestHeader extends Section{
             logoutButton.click();
             loginOpen.clickCenter();
         } else if (loginForm.isDisplayed()) {
-            loginForm.fill(User.emptyUser);
             loginOpen.clickCenter();
+            loginForm.fill(Users.EPMTY);
         } else {
             loginOpen.clickCenter();
             if(loginForm.isDisplayed()){

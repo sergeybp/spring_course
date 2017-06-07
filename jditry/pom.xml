@@ -30,6 +30,14 @@
             <artifactId>allure-testng-adaptor</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -49,7 +57,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/parallelRun.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>

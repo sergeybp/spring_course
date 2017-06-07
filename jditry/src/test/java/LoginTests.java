@@ -3,8 +3,11 @@ import helpers.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.epam.jdi.uitests.core.preconditions.PreconditionsState.isInState;
 import static testsite.TestEpamWebSite.mainPage;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static testsite.enums.States.LOGGED_OUT;
 
 /**
  * Created by sergeybp on 22.05.17.
@@ -31,11 +34,9 @@ public class LoginTests extends InitTests {
     }
 
     public void testLogin(User user, boolean isCorrect){
-        mainPage.header.tryLogout();
-        mainPage.header.loginOpen.clickCenter();
-        Assert.assertTrue(mainPage.header.loginForm.isDisplayed());
-        mainPage.header.loginForm.loginAs(user);
-        Assert.assertEquals(mainPage.header.logoutButton.isDisplayed(), isCorrect);
+        isInState(LOGGED_OUT);
+        mainPage.login(user);
+        Assert.assertEquals(mainPage.isLoggedIn(), isCorrect);
     }
 
 }

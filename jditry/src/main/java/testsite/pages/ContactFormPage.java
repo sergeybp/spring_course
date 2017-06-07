@@ -11,13 +11,10 @@ import testsite.headers.EpamTestHeader;
  */
 public class ContactFormPage extends WebPage {
 
-    @JFindBy(css = "header")
-    public EpamTestHeader header;
-
     @JFindBy(className = "form")
     public ContactForm contactForm;
 
-    @JFindBy(xpath = "/html/body/div/aside[2]/div/div/div[1]/section[2]/div[2]")
+    @JFindBy(className = "results")
     public IText result;
 
 }

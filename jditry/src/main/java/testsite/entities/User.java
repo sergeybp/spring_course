@@ -15,8 +15,6 @@ public class User {
     private String description;
 
 
-    public static User emptyUser = new User("","", "", "");
-
     public User(String name, String password, String lastName, String description) {
         this.name = name;
         this.password = password;
@@ -40,7 +38,4 @@ public class User {
         return description;
     }
 
-    public static User getEmptyUser() {
-        return emptyUser;
-    }
 }

@@ -1,5 +1,7 @@
 package helpers;
 
+import testsite.entities.CustomClock;
+import testsite.entities.CustomDate;
 import testsite.entities.User;
 import org.testng.annotations.DataProvider;
 
@@ -28,7 +30,7 @@ public class DataProviders {
             } catch (Exception e) {
                 continue;
             }
-            result.add(new Object[]{new User(splits[0], splits[1], splits[2], splits[3]), Boolean.parseBoolean(splits[2])});
+            result.add(new Object[]{new User(splits[0], splits[1], splits[2], splits[3]), Boolean.parseBoolean(splits[4])});
         }
         return result.toArray(new Object[0][]);
     }
@@ -41,6 +43,28 @@ public class DataProviders {
                 {new User("Petr", "petrpetr", "Petrov", "descrrrr"), false},
                 {new User("Ivan", "ivan12345", "Ivanov", "Descr"), false},
                 {new User("Olga", "olenka", "Olgovna", "another text"), false},
+        };
+    }
+
+    @DataProvider(name = "clocksProvider")
+    public static Object[][] clocksProvider(){
+        return new Object[][]{
+                {new CustomClock(5, 27, false)},
+                {new CustomClock(5, 30, false)},
+                {new CustomClock(7, 15, true)},
+                {new CustomClock(11, 45, true)},
+                {new CustomClock(8, 33, true)}
+        };
+    }
+
+    @DataProvider(name = "datesProvider")
+    public static Object[][] datesProvider(){
+        return new Object[][]{
+                {new CustomDate(2042, 23, 8)},
+                {new CustomDate(1995, 27, 6)},
+                {new CustomDate(1987, 1, 12)},
+                {new CustomDate(2120, 2, 3)},
+                {new CustomDate(2017, 1, 6)}
         };
     }
 

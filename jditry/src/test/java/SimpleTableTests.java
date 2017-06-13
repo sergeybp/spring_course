@@ -51,4 +51,15 @@ public class SimpleTableTests extends InitTests {
         }
     }
 
+    @Test
+    public void checkContent(){
+        Assert.assertEquals(simpleTablePage.table.getValue(), "||X||||\n" +
+                "||1||Drivers|Selenium Custom|JavaScript, Appium, WinAPI, Sikuli||\n" +
+                "||2||Test Runner|TestNG, JUnit Custom|MSTest, NUnit, Epam||\n" +
+                "||3||Asserter|TestNG, JUnit, Custom|MSTest, NUnit, Epam||\n" +
+                "||4||Logger|Log4J, TestNG log, Custom|Epam, XML/Json logging, Hyper logging||\n" +
+                "||5||Reporter|Jenkins, Allure, Custom|EPAM Report portal, Serenity, TimCity, Hudson||\n" +
+                "||6||BDD/DSL|Custom|Cucumber, Jbehave, Thucydides, SpecFlow||");
+    }
+
 }

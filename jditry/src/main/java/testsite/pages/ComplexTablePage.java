@@ -1,22 +1,32 @@
 package testsite.pages;
 
+import com.epam.jdi.uitests.core.interfaces.common.IButton;
+import com.epam.jdi.uitests.core.interfaces.common.IText;
 import com.epam.jdi.uitests.web.selenium.elements.complex.table.EntityTable;
-import com.epam.jdi.uitests.web.selenium.elements.complex.table.Table;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
-import testsite.entities.TableEntity;
-import testsite.entities.TableRow;
+import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JTable;
 
-/**
- * Created by sergeybp on 01.06.17.
- */
+import org.openqa.selenium.support.FindBy;
+import testsite.entities.Technology;
+import testsite.section.TechRow;
+
+import static com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.TableHeaderTypes.ALL_HEADERS;
+
+
 public class ComplexTablePage extends WebPage {
+    @JTable(
+        root = @FindBy(css = "table.table-delete-body"),
+        headerType = ALL_HEADERS,
+        colStartIndex = 2
+    )
+    public EntityTable<Technology, TechRow> complexTable =
+        new EntityTable<>(Technology.class, TechRow.class);
 
-    @JFindBy(css = ".uui-table")
-    public Table table;
-    //public EntityTable<TableEntity, TableRow> table = new EntityTable<TableEntity, TableRow>(TableEntity.class, TableRow.class);
+    @JFindBy(className = "info-panel-body-log")
+    public IText log;
 
-
-
+    @JFindBy(text = "Reestablish")
+    public IButton reestablish;
 
 }

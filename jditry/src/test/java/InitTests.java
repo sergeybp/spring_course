@@ -1,6 +1,9 @@
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
+import com.epam.jdi.uitests.web.settings.WebSettings;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import com.epam.web.matcher.verify.Verify;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
 import testsite.TestEpamWebSite;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
@@ -22,6 +25,11 @@ public class InitTests extends TestNGBase{
     @AfterMethod
     public void tearDown() {
         Verify.getFails();
+    }
+
+    @AfterSuite
+    public static void closeDriver(){
+        WebSettings.getDriver().close();
     }
 
 }

@@ -6,6 +6,8 @@
             <class name="DatesAndClocksTest"/>
             <class name="LoginTests"/>
             <class name="SimpleTableTests"/>
+            <class name="ComplexTableTests"/>
+            <class name="ContactFormTests"/>
         </classes>
     </test>
 </suite>

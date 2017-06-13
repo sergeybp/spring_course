@@ -36,6 +36,9 @@ public class DatesPage extends WebPage implements IComposite{
     @JFindBy(className = "info-panel-body-log")
     public IText log;
 
+    @JFindBy(className = "results")
+    public IText result;
+
     public void findInvisibleBefore() {
         new WebCascadeInit().initElements(this, WebSettings.getDriverFactory().currentDriverName());
     }

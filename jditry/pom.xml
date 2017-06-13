@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdi.version>1.0.65</jdi.version>
+        <jdi.version>1.0.70</jdi.version>
         <allure.version>1.4.23</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
     </properties>
@@ -36,6 +36,12 @@
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.3.6.RELEASE</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

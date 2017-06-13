@@ -37,28 +37,21 @@ public class DatesAndClocksTest extends InitTests {
     }
 
     @Test(dataProvider = "datesProvider", dataProviderClass = DataProviders.class)
+    // CustomDate check
     public void testDates(CustomDate date){
         datesPage.openDatePicker.click();
         datesPage.datePicker.setDate(date);
-        Assert.assertTrue(datesPage.log.getText().contains(date.toString()));
+        datesPage.submit.click();
+        Assert.assertTrue(datesPage.result.getText().contains(date.toString()));
     }
 
     @Test(dataProvider = "clocksProvider", dataProviderClass = DataProviders.class)
+    // CustomClock check
     public void testClocks(CustomClock clock){
         datesPage.openTimePicker.click();
         datesPage.timePicker.setTime(clock);
-        Assert.assertTrue(datesPage.log.getText().contains(clock.toString()));
-
+        datesPage.submit.click();
+        Assert.assertTrue(datesPage.result.getText().contains(clock.toString()));
     }
-
-    /*@Test
-    public void testSubmit(){
-        WebSettings.getJSExecutor().executeScript("document.body.style.zoom = '50%';");
-        //datesPage.findInvisibleBefore();
-        //WebSettings.getJSExecutor().executeScript("document.getElementByText(\"Submit\").click();");
-        WebSettings.getDriver().findElement(By.cssSelector("[type=submit]")).click();
-
-
-    }*/
 
 }

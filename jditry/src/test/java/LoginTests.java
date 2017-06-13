@@ -1,3 +1,4 @@
+import org.testng.annotations.AfterClass;
 import testsite.entities.User;
 import helpers.DataProviders;
 import org.testng.Assert;
@@ -7,6 +8,7 @@ import org.testng.annotations.Test;
 import static com.epam.jdi.uitests.core.preconditions.PreconditionsState.isInState;
 import static testsite.TestEpamWebSite.mainPage;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static testsite.enums.States.LOGGED_IN;
 import static testsite.enums.States.LOGGED_OUT;
 
 /**
@@ -37,6 +39,11 @@ public class LoginTests extends InitTests {
         isInState(LOGGED_OUT);
         mainPage.login(user);
         Assert.assertEquals(mainPage.isLoggedIn(), isCorrect);
+    }
+
+    @AfterClass
+    public void logout(){
+        isInState(LOGGED_OUT);
     }
 
 }

@@ -8,7 +8,7 @@ import testsite.pages.*;
 /**
  * Created by sergeybp on 22.05.17.
  **/
-@JSite(domain = "https://jdi-framework.github.io/tests/")
+@JSite(domain = "https://epam.github.io/JDI")
 public class TestEpamWebSite extends WebSite {
 
     @JPage(url = "index.htm")
@@ -23,8 +23,9 @@ public class TestEpamWebSite extends WebSite {
     @JPage(url = "page6.htm", title = "Simple Table")
     public static SimpleTablePage simpleTablePage;
 
-    @JPage(url = "page5.htm", title = "Complex Table")
-    public static ComplexTablePage complexTablePage;
+
+    @JPage(url = "page5.htm")
+    public static ComplexTablePage complexPage;
 
     @JPage(url = "page3.htm")
     public static SupportPage supportPage;
